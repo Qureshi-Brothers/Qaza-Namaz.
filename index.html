@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ur-Latn">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Qaza Tracker</title>
+<meta name="theme-color" content="#1b7a4b">
+<link rel="manifest" href="manifest.json">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<style>
+:root{--bg:#f4f7f5;--card:#fff;--fg:#14211b;--muted:#5b6b62;--pri:#1b7a4b;--pri-fg:#fff;--tonal:#dcefe4;--bd:#d9e3dd;--err:#b3261e}
+@media (prefers-color-scheme:dark){:root{--bg:#0f1713;--card:#18231d;--fg:#e6efe9;--muted:#9bb0a4;--pri:#5fcf92;--pri-fg:#06210f;--tonal:#24382c;--bd:#2a3b32;--err:#f2b8b5}}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif;-webkit-tap-highlight-color:transparent}
+.wrap{max-width:520px;margin:0 auto;padding:0 16px 96px}
+header.top{position:sticky;top:0;z-index:5;background:var(--pri);color:var(--pri-fg);padding:14px 16px;font-size:20px;font-weight:700;text-align:center}
+h2{font-size:18px;margin:18px 0 8px}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:14px;padding:14px;margin:10px 0}
+.row{display:flex;align-items:center;gap:8px}
+.grow{flex:1;min-width:0}
+.t{font-size:18px;font-weight:600}
+.s{color:var(--muted);font-size:14px}
+.big{font-size:38px;font-weight:800;line-height:1.1}
+.muted{color:var(--muted);font-size:13px}
+.err{color:var(--err);margin:10px 0}
+.btn{appearance:none;border:0;border-radius:12px;padding:12px 16px;font:inherit;font-weight:600;background:var(--pri);color:var(--pri-fg);cursor:pointer;min-height:46px}
+.btn.block{display:block;width:100%;margin:10px 0}
+.btn.tonal{background:var(--tonal);color:var(--fg)}
+.btn.line{background:transparent;color:var(--fg);border:1px solid var(--bd)}
+.btn.link{background:transparent;color:var(--pri);padding:10px}
+.btn:disabled{opacity:.45;cursor:default}
+.ico{appearance:none;border:1px solid var(--bd);background:transparent;color:var(--fg);border-radius:50%;width:42px;height:42px;font-size:22px;cursor:pointer}
+label.f{display:block;margin:12px 0 4px;font-weight:600;font-size:14px}
+input[type=text],input[type=number],input[type=email],input[type=password],select{width:100%;padding:12px;border:1px solid var(--bd);border-radius:10px;background:var(--card);color:var(--fg);font:inherit}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{padding:10px 14px;border-radius:999px;border:1px solid var(--bd);background:transparent;color:var(--fg);font:inherit;cursor:pointer}
+.chip.on{background:var(--pri);color:var(--pri-fg);border-color:var(--pri)}
+.bar{height:9px;border-radius:9px;background:var(--tonal);overflow:hidden;margin:10px 0}
+.bar>i{display:block;height:100%;background:var(--pri)}
+.opt{display:flex;align-items:center;gap:10px;padding:10px 0;font-size:16px}
+.opt input{width:22px;height:22px}
+.tl{display:flex;justify-content:space-between;padding:10px 4px;border-bottom:1px solid var(--bd)}
+.tl:last-child{border-bottom:0}
+.tl.p b{font-weight:700}
+nav.tabs{position:fixed;left:0;right:0;bottom:0;background:var(--card);border-top:1px solid var(--bd);display:flex;padding-bottom:env(safe-area-inset-bottom)}
+nav.tabs button{flex:1;border:0;background:transparent;color:var(--muted);padding:14px 4px;font:inherit;font-weight:600;cursor:pointer}
+nav.tabs button.on{color:var(--pri);box-shadow:inset 0 3px 0 var(--pri)}
+#toast{position:fixed;left:12px;right:12px;bottom:84px;max-width:496px;margin:0 auto;background:#222;color:#fff;padding:12px 14px;border-radius:12px;display:none;z-index:20}
+.center{text-align:center}
+.hero{font-size:64px;text-align:center;margin-top:40px}
+</style>
+</head>
+<body>
+<div id="app"></div>
+<div id="toast" role="status"></div>
+<noscript>Is app ke liye JavaScript on honi chahiye.</noscript>
+<script src="config.js"></script>
+<script src="supabase.js"></script>
+<script src="adhan.js"></script>
+<script src="app.js"></script>
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function () {
+    navigator.serviceWorker.register('sw.js').catch(function () {});
+  });
+}
+</script>
+</body>
+</html>

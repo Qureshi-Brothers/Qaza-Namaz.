@@ -1,0 +1,14 @@
+{
+  "name": "Qaza Tracker",
+  "short_name": "Qaza Tracker",
+  "description": "Qaza namaz aur qaza roze ka hisab, namaz ke auqat aur yaad dehani",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f7f5",
+  "theme_color": "#1b7a4b",
+  "icons": [
+    { "src": "icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any maskable" },
+    { "src": "icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}
